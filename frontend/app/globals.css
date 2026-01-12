@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #f3d670;
+  --secondary: #2d2d2a;
+  --accent: #f9d2ab;
+  --neutral-100: #f5f5f5;
+  --neutral-200: #e5e5e5;
+  --background: #ffffff;
+  --foreground: #2d2d2a;
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-primary-500: var(--primary);
+  --color-primary-600: #e5c55d;
+  
+  --color-secondary: var(--secondary);
+  --color-secondary-500: var(--secondary);
+  --color-secondary-600: #55544f;
+
+  --color-accent: var(--accent);
+  --color-accent-500: var(--accent);
+
+  --color-neutral-100: var(--neutral-100);
+  --color-neutral-200: var(--neutral-200);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+/* Base resets */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button, a {
+  cursor: pointer;
+}
+
+/* Component Classes - Using standard CSS to resolve linter warnings */
+.glass-card {
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(45, 45, 42, 0.1);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.05), 
+    0 2px 4px -2px rgba(0, 0, 0, 0.05),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+  border-radius: 2.5rem;
+}
+
+.mesh-gradient {
+  background-color: #ffffff;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(243, 214, 112, 0.1) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(249, 210, 171, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(229, 229, 229, 0.1) 0px, transparent 50%);
+}
+
+.text-gradient {
+  background-image: linear-gradient(to right, var(--secondary), #3e3d3a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Button Systems */
+.enterprise-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  border-radius: 0.75rem;
+  font-weight: 700;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+.enterprise-btn:active {
+  transform: scale(0.95);
+}
+
+.btn-enterprise-primary {
+  @extend .enterprise-btn; /* Note: CSS doesn't have @extend, but I'll inline below */
+}
+
+/* Specific Buttons */
+.btn-enterprise-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  border-radius: 0.75rem;
+  font-weight: 700;
+  background-color: var(--primary);
+  color: var(--secondary);
+  transition: all 300ms;
+  box-shadow: 0 10px 15px -3px rgba(243, 214, 112, 0.3);
+}
+
+.btn-enterprise-primary:hover {
+  background-color: #e5c55d;
+}
+
+.btn-enterprise-primary:active {
+  transform: scale(0.95);
+}
+
+.btn-enterprise-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  border-radius: 0.75rem;
+  font-weight: 700;
+  background-color: white;
+  border: 1px solid var(--neutral-200);
+  color: var(--secondary);
+  transition: all 300ms;
+}
+
+.btn-enterprise-secondary:hover {
+  background-color: #f9fafb;
+}
+
+.btn-enterprise-secondary:active {
+  transform: scale(0.95);
+}
+
+.enterprise-shadow {
+  box-shadow: 0 20px 40px -15px rgba(104, 103, 97, 0.12);
+}
